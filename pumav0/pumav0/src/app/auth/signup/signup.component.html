@@ -1,0 +1,41 @@
+<div class="container">
+    <h2 class="h2">CREATE AN ACCOUNT</h2>
+    <hr>
+    <p class="lead ">PERSONAL INFORMATION</p>
+    <hr>
+    <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
+      <div class="form-group">
+          <label for="firstname"><small>First Name</small></label>
+          <input type="text" formControlName="firstName" class="form-control form-sm" id="firstname" placeholder="first name"  >
+          <ng-template [ngIf]="!signUpForm.get('firstName').valid && signUpForm.get('firstName').touched "><small class="text-danger">enter your valid first Name</small></ng-template>
+      </div>
+      <div class="form-group">
+          <label for="lastname"><small>Last Name</small></label>
+          <input type="text" formControlName="lastName" class="form-control form-sm" id="lastname" placeholder="last name"  >
+          <ng-template [ngIf]="!signUpForm.get('lastName').valid && signUpForm.get('lastName').touched "><small class="text-danger">enter your valid last Name</small></ng-template>
+      </div>
+      <div class="usergroup" formGroupName="userData">
+        <div class="form-group">
+            <label for="emaiaddress"><small>Email Address</small></label>
+            <input type="text" formControlName="email" class="form-control form-sm" id="emaiaddress" placeholder="email" email  >
+            <ng-template [ngIf]="!this.signUpForm.get('userData').get('email').valid && this.signUpForm.get('userData').get('email').touched "><small class="text-danger">enter your valid password</small></ng-template>  
+        </div> 
+        <div class="form-group">
+            <label for="password"><small>Password</small></label>
+            <input type="text" formControlName="password" class="form-control form-sm" id="password" placeholder="password"  >
+            <ng-template [ngIf]="!this.signUpForm.get('userData').get('password').valid && this.signUpForm.get('userData').get('password').touched "><small class="text-danger">enter your valid password</small></ng-template>
+        </div>  
+      </div>
+      <div class="form-group">
+          <label for="confpassword"><small>Confrim Password</small></label>
+          <input type="text" formControlName="confPassword" class="form-control form-sm" id="confpassword" placeholder="confirm password"  >
+          <ng-template [ngIf]="!signUpForm.get('confPassword').valid && signUpForm.get('confPassword').touched "><small class="text-danger">please enter valid password</small></ng-template>
+      </div>
+      <div class="form-group">
+        <label for="mobile"><small>Mobile</small></label>
+        <input type="text" formControlName="mobile" class="form-control form-sm" id="mobile" placeholder="mobile" >
+        <ng-template [ngIf]="!signUpForm.get('mobile').valid && signUpForm.get('mobile').touched "><small class="text-danger">please enter valid password</small></ng-template>
+      </div>
+      <button type="submit"  class="btn btn-success">submit</button>
+    </form>
+</div>
